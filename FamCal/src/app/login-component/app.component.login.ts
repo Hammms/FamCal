@@ -4,9 +4,12 @@ import { Component } from "@angular/core";
 @Component({
     selector: 'app-login',
     templateUrl: './app.component.login.html',
-    styleUrls: ['./app.component.calendar.css']
+    styleUrls: ['./app.component.login.css']
 })
 
 export class LoginComponent{
-    
+    constructor() {
+    }
+    ngOnInit(): void {
+    }
 }

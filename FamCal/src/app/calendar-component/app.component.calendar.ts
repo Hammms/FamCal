@@ -17,6 +17,10 @@ import { Component } from '@angular/core';
           console.log(m);
       }
 
+   
+    ngOnInit(): void {
+    }
+
       // create a for loop that runs through 30 times and also has a tracker for every 7 times to create a new row 
       
 

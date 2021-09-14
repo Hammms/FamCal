@@ -30,4 +30,22 @@
     going to continune working on creating a diagram 
     from what i have learned from building the diagram i am going to need to start focusing on building an API to get the other parts running. 
 
+9/13/2021 
+    ended up really breaking $#*! today. 
+    reverted changes that i have made since about 9/9/2021 which actually ends up benefiting me 
+    going to get a shell structure going again and get bootstrap added into the angular project
+    i spent most of the day just playing around and learning the basics of routing aswell as observables and injectables. 
+    had a decent bit going then i decided that i wanted to add some type of styling assistance so i went with bootstrap 
+    read a comment wrong and didnt realize that ng-bootstrap and ngx-bootstrap are two different things. 
+    used the ng add for both of them and got my config files all types of out of wack. 
+    after about 20mins of trying to fix it i decided it wasnt that important since most of what i was working was just conceptuial stuff 
+    reverated chagnes and re setup ngx-bootstrap as a new dependency for the project 
+
+9/14/2021
+    i think the hardest part for me isnt the actual coding part it is for the most part understanding what order i should attempt to build the website in aswell as what type of best 
+    pratices that i should be doing to complie a functional angular site. 
+    i created s shell of the site after a bunch of playing around in different thing, but now i am going to start working on dynamimc forms and the process of creating and destorying different types of froms 
+    the goal is once this is completed is to transform the login, register, and forgot password into one view and dynamic form that can be genereated and destoryed as needed to fit my needs 
+    managed to get the base routing of the website down pretty happy about that. at this point now i can start learning about the core important fundmentals of getting this information pushed around 
+
     
