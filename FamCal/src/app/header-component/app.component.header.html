@@ -1,4 +1,25 @@
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+ <!DOCTYPE html>
+  <mat-accordion multi="true" *ngIf="days.length > 0">
+    <mat-expansion-panel *ngFor="let day of days">
+      <mat-expansion-panel-header>
+          {{ day.dates }}
+      </mat-expansion-panel-header> 
+        <mat-action-row>
+          <button mat-button color="primary">EDIT</button>
+          <button mat-button color="warn">DELETE</button>
+        </mat-action-row>
+      </mat-expansion-panel>
+    </mat-accordion>
+    <p class="info-text mat-body-1" *ngIf="days.length <= 0">No posts added yet!</p>
+
+<p>fucking shit mate </p>
+<p *ngFor="let day of days">{{day.dates}}</p>
+
+
+
+
+
+ <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -31,5 +52,5 @@
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
-    </div>
-  </nav>
+    </div> -->
+  <!-- </nav> -->

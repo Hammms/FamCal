@@ -1,5 +1,6 @@
-import { templateJitUrl } from "@angular/compiler";
 import { Component } from "@angular/core";
+
+
 
 @Component({
     selector: 'app-login',
@@ -8,8 +9,16 @@ import { Component } from "@angular/core";
 })
 
 export class LoginComponent{
-    constructor() {
-    }
+    constructor() {}
     ngOnInit(): void {
+        
     }
+   
+
+    // showConfig() {
+    //     this.configService.getConfig()
+    //       // clone the data object, using its known Config shape
+    //       .subscribe((data: Config) => this.config = { ...data });
+    //   }
+   
 }
