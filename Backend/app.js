@@ -54,4 +54,26 @@ app.use((req, res, next) => {
     });
   });
 
+// Sign-up
+app.post("/register-user", (req, res, next) => {
+  bcrypt.hash(req.body.password, 10).then((hash) => {
+      const user = new userSchema({
+          name: req.body.name,
+          email: req.body.email,
+          password: hash
+      });
+      user.save().then((response) => {
+          res.status(201).json({
+              message: "User successfully created!",
+              result: response
+          });
+      }).catch(error => {
+          res.status(500).json({
+              error: error
+          });
+      });
+  });
+});
+
+
 module.exports = app;

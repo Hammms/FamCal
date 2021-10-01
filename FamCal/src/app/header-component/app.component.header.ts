@@ -1,7 +1,7 @@
 
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Subscription } from 'rxjs';
-
+import { AuthService } from "../Services/auth.service";
 import { DayService} from "../Services/day.service";
 import { Day } from "../day";
 
@@ -11,30 +11,62 @@ import { Day } from "../day";
     styleUrls: ['./app.component.header.css']
 })
 
-export class HeaderComponent implements OnInit, OnDestroy {
+
+export class HeaderComponent {
+
+    constructor(public authService: AuthService) { }
+  
+    logout() {
+      this.authService.doLogout()
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// export class HeaderComponent implements OnInit, OnDestroy {
    
-    days: Day[] = [];
-    private daysSub: Subscription;
+//     days: Day[] = [];
+//     private daysSub: Subscription;
     
-    constructor(public dayService: DayService ) {}
-    ngOnInit()  {
-        this.dayService.getDays();
-        this.daysSub = this.dayService.getDaysUpdatedListener()
-            .subscribe((days: Day[]) => {
-            this.days = days;
-        })
+//     constructor(public dayService: DayService ) {}
+//     ngOnInit()  {
+//         this.dayService.getDays();
+//         this.daysSub = this.dayService.getDaysUpdatedListener()
+//             .subscribe((days: Day[]) => {
+//             this.days = days;
+//         })
 
-    }
+//     }
 
-    ngOnDestroy(){
-        this.daysSub.unsubscribe();
-    }
+//     ngOnDestroy(){
+//         this.daysSub.unsubscribe();
+//     }
 
 
 
     
 
-}
+// }
     // showConfig() {
     //     this.dayService.getDays()
     //     .subscribe((data: Config) => this.config = {...data});

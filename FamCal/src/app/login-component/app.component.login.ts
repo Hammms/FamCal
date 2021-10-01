@@ -1,4 +1,7 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from "@angular/forms";
+import { AuthService } from '../Services/auth.service';
+import { Router } from '@angular/router';
 
 
 
@@ -9,16 +12,22 @@ import { Component } from "@angular/core";
 })
 
 export class LoginComponent{
-    constructor() {}
-    ngOnInit(): void {
-        
-    }
-   
+    signinForm: FormGroup;
 
-    // showConfig() {
-    //     this.configService.getConfig()
-    //       // clone the data object, using its known Config shape
-    //       .subscribe((data: Config) => this.config = { ...data });
-    //   }
-   
-}
+    constructor(
+      public fb: FormBuilder,
+      public authService: AuthService,
+      public router: Router
+    ) {
+      this.signinForm = this.fb.group({
+        email: [''],
+        password: ['']
+      })
+    }
+  
+    ngOnInit() { }
+  
+    loginUser() {
+      this.authService.signIn(this.signinForm.value)
+    }
+  }

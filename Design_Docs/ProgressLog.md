@@ -81,3 +81,35 @@
     the whole thing is close af to getting all wired up i have a little more that needs done 
     mongo is connected to express which is connected to angular 
     the core logic just is not functioning correctly right now aswell as it seems i finally got rid of cors issues for now. 
+
+9/22/2021
+    good day so far i finally have everything wired up from a backend mongodb server to api to front end. 
+    the only issue that i seem to be facing now is getting that information to render on the screen properly it is possible that i broke some configurations with angular material and bootstrap by adding them both 
+    
+9/23/2021
+    i did not do anything was busy with some personal things
+
+9/24/2021
+    dont really plan on doing anything today expect for continuing to work on a plan for completing this project aswell as maybe a little bit of code refactoring 
+    again spending time on somem personal stuff once that is ironed out it is back to the grind. i plan on working throughout this weekend aswell to make up for some lost time 
+    
+9/27/2021
+    not much happened from here to then, new week getting back into the groove! 
+    understood the theroy behind authentication going to be using RSA with a HSA256 hash and JWT's to handle local authentication on the server 
+    going to be split between authentication and application server 
+
+9/29/2021
+    having alot of issues with motivation and a few other things, been taking a little time off to focus on health i think i am all set now 
+    we are actually going to attempt to implement user authentication now 
+    users are now able to register but they are not able to login i am unable to return a user id and map it to the user 
+
+9/30/2021
+    stuck on figuring out how to pull the ID from mongo DB to create a character profile page 
+    just decieded to scrap making the profile page for now, i wont to work on the meat and potatos of the application 
+    i got authentication down with sites that are unable to be accessed unless logged in 
+    login and logout seems to be working aswell 
+    going to start working on the big part of the application which is the calendar and its ability to handle data 
+    might be using the angular calendar 6.0+ since i am not a huge fan of doing the CSS and design work myself. 
+
+
+
