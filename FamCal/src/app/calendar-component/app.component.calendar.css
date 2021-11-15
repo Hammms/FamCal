@@ -1,114 +1,255 @@
-.table tbody td {
-    padding: 30px;
-    font-size: 14px;
-    background: #fff;
-    vertical-align: middle;
-    -webkit-transition: .5s;
-    -o-transition: .5s;
-    transition: .5s;
-}
-.table-bordered th, .table-bordered td {
-    border: 1px solid #dee2e6;
-}
-.table th, .table td {
-    padding: .75rem;
-    vertical-align: top;
-    border-top: 1px solid #dee2e6;
-}
-*, *::before, *::after {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
-user agent stylesheet
-td {
-    display: table-cell;
-    vertical-align: inherit;
-}
-.table {
-    min-width: 1000px!important;
-    width: 100%;
-    background: #fff;
-    -webkit-box-shadow: 0 5px 12px -12px rgb(0 0 0 / 29%);
-    -moz-box-shadow: 0 5px 12px -12px rgba(0,0,0,.29);
-    box-shadow: 0 5px 12px -12px rgb(0 0 0 / 29%);
+/**
+ * Tweaked CSS from the following website:
+ * https://www.sketchappsources.com/free-source/2676-calendar-template-sketch-freebie-resource.html
+ */
+
+
+/* WRAPPER */
+
+.wrapper {
+    display: grid;
+    grid-template-rows: 70px 1fr 70px;
+    grid-template-columns: 1fr;
+    grid-template-areas: "sidebar"
+                         "content";
+    width: 100vw; /* unnecessary, but let's keep things consistent */
+    height: 100vh;
+  }
+  
+  @media screen and (min-width: 850px) {
+    .wrapper {
+      grid-template-columns: 200px 5fr;
+      grid-template-rows: 1fr;
+      grid-template-areas: "sidebar content";
+    }
+  }
+  
+  
+  
+  /* SIDEBAR */
+  
+  main {
+    grid-area: content;
+    padding: 48px;
+  }
+  
+  sidebar {
+    grid-area: sidebar;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 3fr 1fr;
+    grid-template-areas: "logo menu avatar"
+                         "copyright menu avatar";
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .copyright {
     text-align: center;
-}
-.text-center {
-    text-align: center!important;
-}
-.table {
-    width: 100%;
-    margin-bottom: 1rem;
-    color: #212529;
-}
-table {
-    border-collapse: collapse;
-}
-user agent stylesheet
-table {
-    border-collapse: separate;
-    text-indent: initial;
-    border-spacing: 2px;
-}
-body {
-    font-family: "Poppins",Arial,sans-serif;
-    font-size: 16px;
-    line-height: 1.8;
-    font-weight: normal;
-    background: #fff;
-    color: gray;
-}
-body {
-    margin: 0;
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-    font-size: 1rem;
+  }
+  .avatar {
+    grid-area: avatar;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+  }
+  .avatar__name {
+    flex: 1;
+    text-align: right;
+    margin-right: 1em;
+  }
+  .avatar__img > img {
+    display: block;
+  }
+  
+  .copyright {
+    grid-area: copyright;
+  }
+  .menu {
+    grid-area: menu;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .logo {
+    grid-area: logo;
+  }
+  .menu__text {
+    display: none;
+  }
+  
+  @media screen and (min-width: 850px) {
+    
+    
+    .menu {
+      flex-direction: column;
+      align-items: normal;
+      justify-content: flex-start;
+    }
+    .menu__text {
+      display: inline-block;
+    }
+    .avatar {
+      flex-direction: column;
+    }
+    .avatar__name {
+      margin: 1em 0;
+    }
+    .avatar__img > img {
+      border-radius: 50%;
+    }
+  }
+  
+  
+  
+  
+  /* MAIN */
+  
+  .toolbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  .calendar{}
+  
+  .calendar__week,
+  .calendar__header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);  
+  }
+  .calendar__week {
+    grid-auto-rows: 100px;
+    text-align: right;
+  }
+  
+  .calendar__header {
+    grid-auto-rows: 50px;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .calendar__day {
+    padding: 16px;
+  }
+  
+  
+  
+  
+  /* COSMETIC STYLING */
+  
+  :root {
+    --red: #ED5454;
+  }
+  
+  body {
+    font-family: Montserrat;
+    font-weight: 100;
+    color: #A8B2B9;
+  }
+  
+
+  
+  main {
+    background-color: #FCFBFC;
+  }
+  
+  .avatar__name {
+    font-size: 0.8rem;
+  }
+  
+  .menu__item {
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding: 16px 16px 16px 14px;
+    border-left: 4px solid transparent;
+    color: inherit;
+    text-decoration: none;
+    transition: color ease 0.3s;
+  }
+  
+  .menu__item--active .menu__icon {
+    color: var(--red);
+  }
+  .menu__item--active .menu__text {
+    color: black;
+  }
+  
+  .menu__item:hover {
+    color: black;
+  }
+  
+  
+  .menu__icon {
+    font-size: 1.3rem;
+  }
+  
+  @media screen and (min-width: 850px) {
+    .menu__icon {
+      font-size: 0.9rem;
+      padding-right: 16px;
+    }
+    .menu__item--active {
+      border-left: 4px solid var(--red);
+      box-shadow: inset 10px 0px 17px -13px var(--red);
+    }
+  }
+  
+  .copyright {
+    font-size: 0.7rem;
     font-weight: 400;
-    line-height: 1.5;
-    color: #212529;
-    text-align: left;
-    background-color: #fff;
-}
-:root {
-    --blue: #007bff;
-    --indigo: #6610f2;
-    --purple: #6f42c1;
-    --pink: #e83e8c;
-    --red: #dc3545;
-    --orange: #fd7e14;
-    --yellow: #ffc107;
-    --green: #28a745;
-    --teal: #20c997;
-    --cyan: #17a2b8;
-    --white: #fff;
-    --gray: #6c757d;
-    --gray-dark: #343a40;
-    --primary: #007bff;
-    --secondary: #6c757d;
-    --success: #28a745;
-    --info: #17a2b8;
-    --warning: #ffc107;
-    --danger: #dc3545;
-    --light: #f8f9fa;
-    --dark: #343a40;
-    --breakpoint-xs: 0;
-    --breakpoint-sm: 576px;
-    --breakpoint-md: 768px;
-    --breakpoint-lg: 992px;
-    --breakpoint-xl: 1200px;
-    --font-family-sans-serif: -apple-system , BlinkMacSystemFont , "Segoe UI" , Roboto , "Helvetica Neue" , Arial , "Noto Sans" , sans-serif , "Apple Color Emoji" , "Segoe UI Emoji" , "Segoe UI Symbol" , "Noto Color Emoji";
-    --font-family-monospace: SFMono-Regular , Menlo , Monaco , Consolas , "Liberation Mono" , "Courier New" , monospace;
-}
-html {
-    font-family: sans-serif;
-    line-height: 1.15;
-    -webkit-text-size-adjust: 100%;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-}
-*, *::before, *::after {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
-*, *::before, *::after {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
+  }
+  
+  .calendar {
+    background-color: white;
+    border: 1px solid #e1e1e1;
+  }
+  
+  .calendar__header > div {
+    text-transform: uppercase;
+    font-size: 0.8em;
+    font-weight: bold;
+  }
+  
+  .calendar__day {
+    border-right: 1px solid #e1e1e1;
+    border-top: 1px solid #e1e1e1;
+  }
+  
+  .calendar__day:last-child {
+    border-right: 0;
+  }
+  
+  .toggle{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  
+    text-align: center;
+    font-size: 0.9em;
+  }
+  .toggle__option{
+    padding: 16px;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    text-transform: capitalize;
+    cursor: pointer;
+  }
+  .toggle__option:first-child {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+  }
+  .toggle__option:last-child {
+      border-left: 0;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+  }
+  .toggle__option--selected{
+    border-color: white;
+    background-color: white;
+    color: var(--red);
+    font-weight: 500;
+    box-shadow: 1px 2px 30px -5px var(--red);
+  }

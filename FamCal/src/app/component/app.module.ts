@@ -12,9 +12,8 @@ import { MatCardModule } from "@angular/material/card"
 import { MatButtonModule } from "@angular/material/button"
 import { MatToolbarModule } from "@angular/material/toolbar"
 import { MatExpansionModule } from "@angular/material/expansion"
+import { MatDialogModule } from '@angular/material/dialog';
 //BootStrap Modules can more than likely be removed 
-import { TooltipModule } from 'ngx-bootstrap/tooltip';
-import { CollapseModule } from 'ngx-bootstrap/collapse';
 //Components
 import { AppComponent } from './app.component';
 import { HeaderComponent } from '../header-component/app.component.header';
@@ -22,13 +21,18 @@ import { CalendarComponent } from '../calendar-component/app.component.calendar'
 import { LoginComponent } from '../login-component/app.component.login';
 import { RegisterComponent } from '../register-component/app.component.register';
 import { ForgotComponent } from '../forgot-component/app.component.forgot';
-import { ReuseComponent } from '../Reuseable-form-component/app.component.reuse';
-import { GenerateComponent } from '../Day-generation-component/app.component.generate';
 import { ProfileComponent } from '../profile-component/app.component.profile';
+import { ResetComponent } from '../reset-component/app.component.reset';
+import { FullcalComponent} from '../fullcal-component/app.component.fullcal';
+import { NgbdModalBasic } from '../fullcal-component/modal-content/app.component.mconent';
 // Services and Interceptors 
 import { AuthInterceptor } from '../Services/authconfig.interceptor';
 import { AuthGuard } from '../Services/auth.guard';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+//Full Calendar
+import { FullCalendarModule } from '@fullcalendar/angular'; // must go before plugins
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
+import interactionPlugin from '@fullcalendar/interaction'; // a plugin!
 const routes: Routes = [
   {path:'', redirectTo:'login', pathMatch: 'full' },
   {path:'test', component:HeaderComponent},
@@ -37,27 +41,35 @@ const routes: Routes = [
   {path:'register', component: RegisterComponent},
   {path:'header', component: HeaderComponent},
   {path:'app', component: CalendarComponent, canActivate: [AuthGuard]},
-  {path:'profile', component: ProfileComponent, canActivate: [AuthGuard]}
+  {path:'profile', component: ProfileComponent, canActivate: [AuthGuard]},
+  {path: 'response-reset-password/:token',component: ResetComponent},
+  {path: 'cal', component: FullcalComponent}
 ];
+
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+  dayGridPlugin,
+  interactionPlugin
+]);
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     CalendarComponent,
-    GenerateComponent,
-    ReuseComponent,
     ForgotComponent,
     RegisterComponent,
     HeaderComponent,
-    ProfileComponent
+    ProfileComponent,
+    ResetComponent,
+    FullcalComponent,
+    NgbdModalBasic
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
+    FullCalendarModule,
     HttpClientModule,
-    TooltipModule.forRoot(),
-    CollapseModule.forRoot(),
     AppRoutingModule,
     BrowserAnimationsModule,
     MatInputModule,
@@ -66,7 +78,9 @@ const routes: Routes = [
     MatToolbarModule,
     MatExpansionModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule,
+    NgbModule
   ],
   providers: [ {
     provide: HTTP_INTERCEPTORS,

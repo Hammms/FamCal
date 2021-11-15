@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
 import { User } from '../user';
+import { finalreset } from '../finalreset';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +23,24 @@ export class AuthService {
   ) {
   }
 
+  checkSetToken(resettoken): Observable<any> {
+    //console.log(resettoken)
+    return this.http.post(`${this.endpoint}/checksettoken`, resettoken)
+  }
+
+  checkemail(user: User): Observable<any> {
+  return this.http.post(`${this.endpoint}/checkemail`, user)
+  }
+
+  emailRest(resetpayload: finalreset): Observable<any> {
+    if(resetpayload.newpass1 != resetpayload.newpass2){
+      alert("Passwords do not match")
+      return
+    }
+    return this.http.post(`${this.endpoint}/emailreset`, resetpayload)
+    // this.router.navigate(['app'])
+  }
+
   // Sign-up
   signUp(user: User): Observable<any> {
     let api = `${this.endpoint}/register-user`;
@@ -30,9 +51,11 @@ export class AuthService {
   }
 
   // Sign-in
+  // need to hash request payload currently sending it as plain text 
   signIn(user: User) {
     return this.http.post<any>(`${this.endpoint}/signin`, user)
       .subscribe((res: any) => {
+        
         localStorage.setItem('access_token', res.token)
         // Attempting to setup a profile page, not working put on back burner 
         // this.getUserProfile(res._id).subscribe((res) => {
@@ -59,7 +82,7 @@ export class AuthService {
     }
   }
 
-  // User profile
+  // User profile currently not setup 
   getUserProfile(id: string): Observable<any> {
     let api = `${this.endpoint}/profile/${id}`;
     return this.http.get(api, { headers: this.headers }).pipe(
@@ -70,6 +93,22 @@ export class AuthService {
     )
   }
 
+  // init reset process and send email to user 
+reset(user: User) {
+    return this.http.post<any>(`${this.endpoint}/reset`, user)
+      .subscribe((res: any) => {
+        
+        this.router.navigate(['login'])
+      })
+  }
+
+  //handle password reset from email
+  requestReset(body): Observable<any> {
+    return this.http.post(`${this.endpoint}/response-reset-password`, body)
+      
+  }
+
+  
   // Error 
   handleError(error: HttpErrorResponse) {
     let msg = '';
@@ -83,3 +122,9 @@ export class AuthService {
     return throwError(msg);
   }
 }
+
+
+
+
+
+

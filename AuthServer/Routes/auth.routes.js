@@ -12,20 +12,46 @@ var nodemailer = require('nodemailer');
 const { check, validationResult } = require('express-validator');
 const crypto = require("crypto");
 const reset = require("./Controllers/reset");
-const db = require("../database/db")
+const db = require("../database/db");
+const { Query } = require("mongoose");
+const { query } = require("express");
+
+
+
 
 
 clientURL = "localhost:/4000";
 
 
+router.post("/testing"), (res,next) =>{
+    return res.json({
+        message: "what the fuck"
+        });
+}
+
+router.post("/checksettoken", (req,res,next) => { 
+    
+    resettokenSchema.findOne({
+        resettoken: req.body.token
+    }).then(token => {
+        if(token == null)
+        {
+            return res.json({
+                message: false
+                });
+        }
+    })
+    
+})
+
 router.post("/checkemail", (req,res,next) => { 
-    console.log(req.body)
+    //console.log(req.body)
     userSchema.findOne({
         email: req.body.email
     }).then(user => {
         if (user != null )
         {
-        console.log(user)
+      //  console.log(user)
         return res.json({
         message: true
         });
@@ -52,11 +78,17 @@ router.post("/emailreset", (req,res,next) => {
                 message: "Authentication failed"
             });
         }
-        // have the users password hashed befor eit ge
-        userSchema.findOne({
 
-        })
-         console.log(user)   
+
+        bcrypt.hash(req.body.newpass1, 10).then((hash) => {
+            console.log(hash)
+            const query = {_id: user.userId};
+            userSchema.findOneAndUpdate(query,{password: hash}).then( user =>{
+            console.log(user)
+            })
+         });
+
+        //console.log(user)   
     })
 
 
@@ -107,7 +139,7 @@ router.post("/reset", (req, res, next) => {
                 
             } 
         })
-        console.log(user.email)
+        //console.log(user.email)
         // create new password reset record and send it over through email 
         var resettoken = new passwordResetToken({ userId: user._id, resettoken: crypto.randomBytes(16).toString('hex') });
         resettoken.save(function (err) {

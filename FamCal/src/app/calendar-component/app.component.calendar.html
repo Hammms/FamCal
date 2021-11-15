@@ -1,34 +1,117 @@
 <!DOCTYPE html>
 <app-header></app-header>
-<div class="table-wrap">
-    <table class="table table-bordered text-center">
-    <thead>
-    <tr>
-    <th>Monday</th>
-    <th>Tuesday</th>
-    <th>Wednesday</th>
-    <th>Thursday</th>
-    <th>Friday</th>
-    <th>Saturday</th>
-    <th>Sunday</th>
-    </tr>
-    </thead>
-        <tbody app-generate></tbody>
-            
-    
-    <tfoot>
-    <tr> 
-    <th><a href="#"><i class="fa fa-long-arrow-left"></i> September</a></th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th><a href="#">November <i class="fa fa-long-arrow-right"></i></a></th>
-    </tr>
-    </tfoot>
-    </table>
-    </div>
+<div class="wrapper">
+    <main>
+      <div class="toolbar">
+        <div class="toggle">
+          <div class="toggle__option toggle__option--selected">month</div>
+        </div>
+        <div class="current-month">June 2016</div>
+        <div class="search-input">
+          <input type="text" value="What are you looking for?">
+          <i class="fa fa-search"></i>
+        </div>
+      </div>
+      <div class="calendar">
+        <div class="calendar__header">
+          <div>mon</div>
+          <div>tue</div>
+          <div>wed</div>
+          <div>thu</div>
+          <div>fri</div>
+          <div>sat</div>
+          <div>sun</div>
+        </div>
+        <div class="calendar__week">
+          <div class="calendar__day day" (click)="openVerticallyCentered(content)">1!</div>
+          <div class="calendar__day day">2</div>
+          <div class="calendar__day day">3</div>
+          <div class="calendar__day day">4</div>
+          <div class="calendar__day day">5</div>
+          <div class="calendar__day day">6</div>
+          <div class="calendar__day day">7</div>
+        </div>
+        <div class="calendar__week">
+          <div class="calendar__day day">8</div>
+          <div class="calendar__day day">9</div>
+          <div class="calendar__day day">10</div>
+          <div class="calendar__day day">11</div>
+          <div class="calendar__day day">12</div>
+          <div class="calendar__day day">13</div>
+          <div class="calendar__day day">14</div>        
+        </div>
+        <div class="calendar__week">
+          <div class="calendar__day day">15</div>
+          <div class="calendar__day day">16</div>
+          <div class="calendar__day day">17</div>
+          <div class="calendar__day day">18</div>
+          <div class="calendar__day day">19</div>
+          <div class="calendar__day day">20</div>
+          <div class="calendar__day day">21</div>    
+        </div>
+        <div class="calendar__week">
+          <div class="calendar__day day">22</div>
+          <div class="calendar__day day">23</div>
+          <div class="calendar__day day">24</div>
+          <div class="calendar__day day">25</div>
+          <div class="calendar__day day">26</div> 
+          <div class="calendar__day day">27</div> 
+          <div class="calendar__day day">28</div> 
+        </div>
+        <div class="calendar__week">
+          <div class="calendar__day day">29</div>
+          <div class="calendar__day day">30</div>
+          <div class="calendar__day day">31</div>
+          <div class="calendar__day day">1</div>
+          <div class="calendar__day day">2</div>
+          <div class="calendar__day day">3</div>
+          <div class="calendar__day day">4</div>
+        </div>
+      </div>
+    </main>
+   
+  </div>
+
+
+
+<!-- Modal -->
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Modal title</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form-group ">
+      <input type="email" class="form-control" formControlName="event" placeholder="event">
+  
+    <form class="form-inline">
+      <!-- Start Date -->
+        <div class="input-group">
+          <input class="form-control" formControlName="startDate" placeholder="startDate"
+                name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+          </div>
+          <!-- End date -->
+        <div class="input-group">
+          <input class="form-control" formControlName="endDate" placeholder="endDate"
+                name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+          </div>
+        </div>
+      </div>
+    <input type="password" class="form-control" aligin="center" formControlName="description" placeholder="description">
+    </form>
+  </div>
+ </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>
 
 
 

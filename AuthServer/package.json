@@ -19,8 +19,10 @@
     "express-validator": "^6.12.2",
     "handlebars": "^4.7.7",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.0.8",
+    "mongo": "^0.1.0",
+    "mongoose": "^5.13.12",
     "mongoose-unique-validator": "^2.0.3",
-    "nodemailer": "^6.6.5"
+    "nodemailer": "^6.6.5",
+    "supertest": "^6.1.6"
   }
 }

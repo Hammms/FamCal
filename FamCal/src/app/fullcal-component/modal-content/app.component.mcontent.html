@@ -1,0 +1,42 @@
+<ng-template #content  let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title">Create Event</h4>
+      <button type="button" class="close" aria-label="Close" (click)="c('Cross click')" >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      
+      <form class="form-event " [formGroup]="eventForm" (ngSubmit)="pushModalData(output.value)" #output='ngForm'>
+        <div class="form-group ">
+            <input type="title" class="form-control" formControlName="title" placeholder="TURBO" >
+        </div>
+        <div class="form-group">
+            <input type="date" class="form-control" aligin="center" formControlName="start" placeholder="start" >
+        </div><br>
+        <div class="form-group">
+          <input type="date" class="form-control" aligin="center" formControlName="end" placeholder="end">
+        </div><br>
+        <div class="form-group">
+          <input type="desc" class="form-control" aligin="center" formControlName="desc" placeholder="desc">
+        </div><br>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary" >submit</button>
+        </div><br>
+    </form>
+
+
+ 
+
+
+
+
+
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
+    </div>
+  </ng-template>
+  
+  <pre>{{closeResult}}</pre>
+  

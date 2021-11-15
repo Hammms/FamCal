@@ -111,5 +111,81 @@
     going to start working on the big part of the application which is the calendar and its ability to handle data 
     might be using the angular calendar 6.0+ since i am not a huge fan of doing the CSS and design work myself. 
 
+10/1/2021
+    new month new me! all i did was push an update to the respository today, going to study on getting password resets to work or 
+    i am going to work on understanding the angular calendar 6.0+ 
+    
+10/3/2021
+    got angular calendar setup in a sperate project just to take a look at it 
+
+10/4/2021
+    i am not going to be using angular calednar instead i will be building my own from scratch 
+    the reason for this is angular calendar is way too complicated and it would take me more time than i have to understand everything that is going on there. 
+    going to work on getting the password reset functionality working on the website 
+    having trouble with password reset functionality got to the point where i can hash the password and create a new JWT 
+    not sure how to email it and how it actually handlles saving a new password 
+10/5/2021
+    continuing working on the password reset process 
+
+10/6/2021
+    a new videogame dropped decided i will study on a day on the weekend and place that and do errands today instead 
+
+10/7/2021
+    wrote up my resume and updated the github page a little 
+
+10/11/2021
+    got my friend to help me out with designing the UI/UX of the application 
+    not sure they are going to follow through 
+    worked on a bunch of form validation and error handling today 
+    made it so each form will only take what i want it to now 
+    checking for valid email addresses
+    made and handled password criteria 
+    added form validation for all forms on the site 
+10/12/2021
+    managed to get the password reset working when you request a second password reset 
+    before it was not deleteing the old token but instead just creating another one and causing internal server errors
+    managed to get that all fixed up 
+    going to start working on the final part of actually applying a new password to the user and hashing it into the database 
+    issue that every time the server disconnectes it messes up the indexs can possibly drop all indexs on startup 
+    i will fix this later 
+10/13/2021
+    starting the day off with a commit to the repository 
+    going to work on checking for valid email on password reset aswell as login page 
+    then i need to commplete the second part of applying the password reset to the user and database 
+    
+10/21/2021
+    some of my progress logs got deleted on accident 
+    fixed more authentication and error handling 
+    bought a domain on turboterry.com aswell as a vps server to host the website 
+    after a day of miserableness trying to get everything to work on cwp panel switched to cpanel and got the front end of the site up and running 
+10/26/2021
+    dumb apache and nginx are taking up alot of time to configure kept running into issue because i wanted a web panel that i could work out of but it was impressive how none of thme are for anything buy php
+    honestly i am starting to really not like php and apache just because all the panels were centered around them and seemed to purposely make it harder to implement nodejs and other stuff 
+11/1/2021
+    after about a week of tampering wiht the server i am happy to say that although no programming progress itself was made aside from making some minor changes for everything to function the same in production. overall everything is looking good i have the site acting almost exactly the same as how it does on my local machine. 
+    today i am looking to get dynamimc css flowing so that i can have one style sheet that handles 720p 1080p 1440p and mobile 
+    preferably this would be alot easier if i can write only one set of code for all and have it dynamically scale, if that does not work i will have to do it the cave man style of coding out each style based on current resoultion of screen and also using a default if one cannot be dertermined 
+
+11/9/2021
+    hit a wall and was a little discourged in myself although i am on the final stretch to making something that is a pretty good project 
+    started applying for jobs already, going to continue working on this project 
+    i have implemented a calendar and a modal popups up when you click on a date i just now need that modal to interact properly with input data and have it move through the proper 
+    channels to send that to a database that can handle loading calendar data 
+11/10/2021
+    struggling with user input and handling how the fullcalendar structure works 
+    issue before was data would apply and i had no way of letting the user enter information into the modal before it would apply it to the calendar 
+    therefore it was just returning udefined 
+    starting to get a better idea of what i am going to do 
+    going to have the select field from full calendar only open the modal and prefill data from the selected information into the date field for you 
+    then from there the rest will be handled by a different function that takes in the incoming data and adds an event 
+11/11/2021
+    got more of the interface functioning on famcal specfically error checking inputs and flushing out what was left of inputs to have proper data stored 
+
+11/12/2021
+    working on what happens when you click on an existing event today to start with and go from there 
+    exisiting events that are clicked now are working properly, i need to now make a button that can also remove that event 
+    
+    
+
 
 

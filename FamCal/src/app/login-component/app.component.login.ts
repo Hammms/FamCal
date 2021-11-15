@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { AuthService } from '../Services/auth.service';
 import { Router } from '@angular/router';
 
@@ -20,14 +20,32 @@ export class LoginComponent{
       public router: Router
     ) {
       this.signinForm = this.fb.group({
-        email: [''],
-        password: ['']
+        email: ['',
+        [Validators.required, Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+        password: ['', [Validators.required, Validators.minLength(6)]]
       })
     }
   
     ngOnInit() { }
   
+    checkvalidemail() {
+      this.authService.checkemail(this.signinForm.value).subscribe((res) => {
+        console.log(res.message)
+        if(res.message == null)
+        {
+           return alert("Invalid Email")
+        }
+      })
+    }
+
+ 
     loginUser() {
-      this.authService.signIn(this.signinForm.value)
+      this.checkvalidemail();
+      if (this.signinForm.invalid) {
+        return alert('Please use a valid email or password');
+      }
+      
+
+      this.authService.signIn(this.signinForm.value);
     }
   }

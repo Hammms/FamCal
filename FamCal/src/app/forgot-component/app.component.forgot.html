@@ -1,26 +1,21 @@
-<body>
-    <div id="login">
-        <h3 class="text-center text-white pt-5">FamCal</h3>
-        <div class="container">
-            <div id="login-row" class="row justify-content-center align-items-center">
-                <div id="login-column" class="col-md-6">
-                    <div id="login-box" class="col-md-12">
-                        <form id="login-form" class="form" action="" method="post">
-                            <h3 class="text-center text-info">Forgot Password</h3>
-                            <div class="form-group">
-                                <label for="username" class="text-info">Email Address:</label><br>
-                                <input type="text" name="username" id="username" class="form-control">
-                            </div>
-    
-                            <div class="form-group">
-                                <br>
-                                <input type="submit" routerLink="/login" name="submit" class="btn btn-info btn-md " value="submit">
-                                <input type="submit" routerLink="/login" name="submit" class="btn btn-info btn-md" value="Cancel">
-                            </div>
-                        </form>
-                    </div>
-                </div>
+<div class="auth-wrapper">
+        <form class="form-signin" [formGroup]="resetForm" (ngSubmit)="reset()">
+            <h3 class="h3 mb-3 font-weight-normal text-center">Forgot Password</h3>
+            <div class="form-group">
+                
+                <input type="email" class="form-control" formControlName="email" placeholder="Email" required>
             </div>
+            <div class="text-center" >
+                <button type="submit" class="btn btn-primary">Send Link</button>
+            </div>
+        </form>
+        <div id="register-link" class="links-container">
+            <a  routerLink="/register" class="links">Don't have an account Sign Up!</a><br>
+            
         </div>
-    </div> 
-</body>
+    </div>
+    <router-outlet></router-outlet>
+
+
+
+ 

@@ -1,52 +1,28 @@
-const app = require("./app");
-const debug = require("debug")("node-angular");
-const http = require("http");
+import express from 'express';
+import bodyParser from 'body-parser';
+import mongoose from 'mongoose';
+import cors from 'cors';
 
-const normalizePort = val => {
-  var port = parseInt(val, 10);
+import eventRoutes from './routes/events.js';
 
-  if (isNaN(port)) {
-    // named pipe
-    return val;
-  }
+const app = express();
 
-  if (port >= 0) {
-    // port number
-    return port;
-  }
+app.use(bodyParser.json({ limit: "30mb", extended: true }));
+app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
+app.use(cors());
 
-  return false;
-};
+app.use('/events', eventRoutes);
 
-const onError = error => {
-  if (error.syscall !== "listen") {
-    throw error;
-  }
-  const bind = typeof port === "string" ? "pipe " + port : "port " + port;
-  switch (error.code) {
-    case "EACCES":
-      console.error(bind + " requires elevated privileges");
-      process.exit(1);
-      break;
-    case "EADDRINUSE":
-      console.error(bind + " is already in use");
-      process.exit(1);
-      break;
-    default:
-      throw error;
-  }
-};
+const CONNECTION_URL = 'mongodb://localhost:27017/FamCal';
 
-const onListening = () => {
-  const addr = server.address();
-  const bind = typeof port === "string" ? "pipe " + port : "port " + port;
-  debug("Listening on " + bind);
-};
+const PORT = process.env.PORT || 5000;
 
-const port = normalizePort(process.env.PORT || "3000");
-app.set("port", port);
+mongoose.connect(CONNECTION_URL, 
+    { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => app.listen(PORT, () => 
+        console.log(`Server Running on Port: http://localhost:${PORT}`)))
+    .catch((error) => console.log(`${error} did not connect`));
 
-const server = http.createServer(app);
-server.on("error", onError);
-server.on("listening", onListening);
-server.listen(port);
+mongoose.set('useFindAndModify', false);
+
+

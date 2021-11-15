@@ -1,18 +1,39 @@
+<div class="title-container">
+    <h2 class="title ">FamCal</h2>
+    <div class="description">Let's make connecting with family easier. </div>
+    <img src="assets/clock_800_300.png"  alt="Clock" class="image">
+</div>
+
+
+
 <div class="auth-wrapper">
     <form class="form-signin" [formGroup]="signupForm" (ngSubmit)="registerUser()">
-        <h3 class="h3 mb-3 font-weight-normal text-center">Please sign up</h3>
+        <h3 class="h3  font-weight-normal">Sign Up</h3>
         <div class="form-group">
-            <label>Name</label>
-            <input type="text" class="form-control" formControlName="name" placeholder="Enter name" required>
+            
+            <input type="text" class="form-control" formControlName="name" placeholder="Username" required>
         </div>
         <div class="form-group">
-            <label>Email address</label>
-            <input type="email" class="form-control" formControlName="email" placeholder="Enter email" required>
+           
+            <input type="email" class="form-control" formControlName="email" placeholder="Email" required>
         </div>
         <div class="form-group">
-            <label>Password</label>
             <input type="password" class="form-control" formControlName="password" placeholder="Password" required>
+        </div><br>
+        <div class="text-center" >
+         <button type="submit" class="btn btn-primary">Sign up</button>
         </div>
-        <button type="submit" class="btn btn-block btn-primary">Sign up</button>
-    </form>
+    </form><br>
+    <div id="register-link" class="links-container">
+        <a  routerLink="/login" class="links">Already have an account? Sign In!</a>
+    </div>
 </div>
+<!-- <h4>password critera</h4>
+<div>
+        At least 8 characters in length<br>
+        Lowercase letters<br>
+        Uppercase letters<br>
+        Numbers<br>
+        Special characters
+<div>
+<a  routerLink='/login' class="text-info">login page</a> -->

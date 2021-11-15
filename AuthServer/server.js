@@ -19,7 +19,7 @@ mongoose.connect(dbConfig.db, {
         console.log("Database can't be connected: " + error)
     }
 )
-
+mongoose.set('debug', true)
 // Remvoe MongoDB warning error
 // mongoose.set('useCreateIndex', true);
 

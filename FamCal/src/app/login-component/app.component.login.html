@@ -1,21 +1,29 @@
-<body>
+
+   
+   <div class="title-container">
+        <h2 class="title ">FamCal</h2>
+        <div class="description">Let's make connecting with family easier. </div>
+        <img src="assets/clock_800_300.png"  alt="Clock" class="image">
+    </div>
+    
+        
+    
     <div class="auth-wrapper">
-        <form class="form-signin" [formGroup]="signinForm" (ngSubmit)="loginUser()">
-            <h3 class="h3 mb-3 font-weight-normal text-center">Please sign in</h3>
-            <div class="form-group">
-                <label>Email</label>
-                <input type="email" class="form-control" formControlName="email" placeholder="Enter email" required>
+        <form class="form-signin " [formGroup]="signinForm" (ngSubmit)="loginUser()">
+            <h3 class="h3  font-weight-normal ">Sign In</h3><br><br>
+            <div class="form-group ">
+                <input type="email" class="form-control" formControlName="email" placeholder="Email">
             </div>
             <div class="form-group">
-                <label>Password</label>
-                <input type="password" class="form-control" formControlName="password" placeholder="Password">
-            </div>
-            <button type="submit" class="btn btn-block btn-primary">Sign in</button>
+                <input type="password" class="form-control" aligin="center" formControlName="password" placeholder="Password">
+            </div><br>
+            <div class="text-center" >
+                <button type="submit" class="btn btn-primary ">Sign in</button>
+            </div><br>
         </form>
-        <div id="register-link" class="text-right">
-            <a  routerLink="/register" class="text-info">Register here</a><br>
-            <a  routerLink='/forgot' class="text-info">Password Reset</a>
+        <div id="register-link" class="links-container">
+            <a  routerLink='/forgot' class="links">Forgot Password?</a><br><br>
+            <a  routerLink="/register" class="links">Dont have an account? Sign Up!</a>
         </div>
     </div>
     <router-outlet></router-outlet>
-</body>
