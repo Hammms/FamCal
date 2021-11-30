@@ -37,7 +37,7 @@ export class FullcalComponent{
     plugins: [googleCalendarPlugin],
     googleCalendarApiKey: 'YOUR API KEY HERE',
     events: {
-      googleCalendarId:'dvikj4l5pb4ur77ch7js2fb0ug@group.calendar.google.com'
+      googleCalendarId:'YOUR GOOGLE CALENDAR ID HERE'
     },
     eventColor: '#5687e9',
     eventBorderColor: '#5687e9',
