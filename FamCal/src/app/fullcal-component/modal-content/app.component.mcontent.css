@@ -1,0 +1,20 @@
+.modal-body, .modal-footer, .modal-header  {
+    background-color: rgb(41, 43, 45);
+    border-radius: 0;
+    color: rgb(255, 255, 255);
+}
+.form-control {
+    background-color: rgb(50, 54, 54);
+    color: rgb(255, 255, 255);
+}
+
+btn, .btn-outline-dark {
+    border-color: rgb(86, 135, 233);
+    color: rgb(255, 255, 255);
+} 
+
+a {
+    color: rgb(145, 255, 255);
+    text-decoration-color: initial;
+}
+

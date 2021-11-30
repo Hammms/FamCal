@@ -1,44 +1,35 @@
-<div class='demo-app'>
-  
+<!-- <div class='demo-app'>
+</div> -->
 
-
-  </div>
-
-
+   
   <div class='demo-app-main'>
+    <img src="assets/Christmastest.png" class="cornerimg">
+    <div [hidden]='hideSideBar' class='demo-app-sidebar'>
+      <div class='demo-app-sidebar-section'>
+        <h2>Event Details</h2>
+        <ul>
+          <li>{{eventInfoTitle}}</li>
+          <li>{{eventInfoStart}}</li>
+          <li>{{eventInfoEnd}}</li>
+          <li>{{eventInfoDesc}}</li>
+        </ul>
+      </div>
+      <div class="buttons">
+        <button type="click" (click) ="editEventData()" class="btn"><img src="assets/edit48.png"></button>
+        <button type="click" class="btn" (click)="handleEventDelete()" ><img src="assets/delete48.png"></button>
+    </div>
+    </div>
+    
     <full-calendar #calendar
+      class = "FamCal"
       *ngIf='calendarVisible'
       [options]='calendarOptions'
     ></full-calendar>
+
   </div>
 
   
-  <div [hidden]='hideSideBar' class='demo-app-sidebar'>
-    <div class='demo-app-sidebar-section'>
-      <h2>Event Details</h2>
-      <ul>
-        <li>{{eventInfoTitle}}</li>
-        <li>{{eventInfoStart}}</li>
-        <li>{{eventInfoEnd}}</li>
-        <li>{{eventInfoDesc}}</li>
-      </ul>
-      <button type="click" class="btn" (click)="handleEventDelete()" >Delete Event</button>
-    </div>
-    <div class='demo-app-sidebar-section'>
-
-    </div>
-    <div class='demo-app-sidebar-section'>
-    </div>
-    <div class='demo-app-sidebar-section'>
-      <h2>All Events ({{currentEvents.length}})</h2>
-      <ul>
-        <li *ngFor='let event of currentEvents'>
-          <b>{{event.startStr}}</b>
-          <i>{{event.title}}</i>
-        </li>
-      </ul>
-    </div>
-  </div>
+ 
 
 <ngbd-modal-basic (eventFormOutput)="pushModalData($event)"></ngbd-modal-basic>
   

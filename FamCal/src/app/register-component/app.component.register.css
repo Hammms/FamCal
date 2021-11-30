@@ -3,7 +3,7 @@
     padding: 0;
     background-color: #17a2b8;
     height: 100vh;
-  }
+  } 
   #login .container #login-row #login-column #login-box {
     margin-top: 120px;
     max-width: 600px;
@@ -33,7 +33,7 @@
   display: inline-block;
   text-align: left;
   font: normal normal 400 3em Segoe UI;
-  color: #233863;
+  color: rgb(196, 251, 255);
   opacity: 1;
 }
 .form-control {
@@ -61,6 +61,7 @@
   width: 562px;
   height: 92px;
   background: #FFFFFF 0% 0% no-repeat padding-box;
+  background-color: rgb(46, 71, 119);
   box-shadow: inset 0px 3px 6px #00000029, 0px 3px 6px #00000029;
   border-radius: 24px;
   opacity: 1;
@@ -74,7 +75,7 @@
   text-align: left;
   font: normal normal bold 140px/186px Segoe UI;
   letter-spacing: 0px;
-  color: #2B468B;
+  color: rgb(196, 251, 255);
   opacity: 1;
 }
 .btn {
@@ -85,7 +86,7 @@
   text-align: center;
   font: normal normal bold 70px/94px Segoe UI;
   letter-spacing: 0px;
-  background-color: #233863;
+  background-color: rgb(42, 66, 110);
   opacity: 1;
 }
 
@@ -107,7 +108,7 @@
   text-align: center;
   font: normal normal bold 100px/133px Segoe UI;
   letter-spacing: 0px;
-  color: #2B468B;
+  color: rgb(196, 251, 255);
   opacity: 1;
 }
 
@@ -125,14 +126,17 @@
  
   
   background: #F7F7F7 0% 0% no-repeat padding-box;
-  box-shadow: 7px 10px 6px #00000045;
+  background-color: rgb(50, 54, 54);
+  box-shadow: rgba(6, 6, 6, 0.27) 7px 10px 6px;
   border: 7px solid #233863;
+  border-color: rgb(86, 135, 233);
   border-radius: 60px;
   opacity: 1;
 }
 
 .form-control {
   left: 1em;
+  background-color: rgb(41, 43, 45);
 }
 
 .links-container {
@@ -149,7 +153,7 @@
   text-decoration: underline;
   font: normal normal bold 30px/40px Segoe UI;
   letter-spacing: 0px;
-  color: #233863;
+  color: rgb(196, 251, 255);
   opacity: 1;
 }
 

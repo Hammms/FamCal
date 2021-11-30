@@ -26,7 +26,6 @@ export class RegisterComponent implements OnInit {
   
     ngOnInit() { }
     
-
     checkvalidemail() {
       this.authService.checkemail(this.signupForm.value).subscribe((res) => {
         //console.log(res.message)
@@ -36,7 +35,6 @@ export class RegisterComponent implements OnInit {
         }
       })
     }
-
 
 
     registerUser() {

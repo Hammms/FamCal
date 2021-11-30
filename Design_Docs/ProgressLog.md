@@ -186,6 +186,19 @@
     exisiting events that are clicked now are working properly, i need to now make a button that can also remove that event 
     
     
+11/23/2021
+    had a couple interviews that i was working on so i took a break from this project 
+    they ended up being duds :/
+    working on connection the google api to this project so that i can finally be done with it. 
 
+
+11/29/2021
+    making it my goal to have this shipped by the end of the week 
+    just got deletes done aside from one small bug where a refreash is currently required to delete a newly added event properly 
+    the following is all that needs to be compelted today atleast 
+        fix deletes
+        add edits to events 
+        refine code so it doesnt look sloppy 
+        
 
 

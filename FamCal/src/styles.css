@@ -1,0 +1,9 @@
+body {
+    background-color: rgb(41, 43, 45);
+    color: rgb(255, 255, 255);
+}
+
+a {
+    color: rgb(145, 255, 255);
+    text-decoration-color: initial;
+}

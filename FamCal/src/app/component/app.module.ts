@@ -13,11 +13,9 @@ import { MatButtonModule } from "@angular/material/button"
 import { MatToolbarModule } from "@angular/material/toolbar"
 import { MatExpansionModule } from "@angular/material/expansion"
 import { MatDialogModule } from '@angular/material/dialog';
-//BootStrap Modules can more than likely be removed 
 //Components
 import { AppComponent } from './app.component';
 import { HeaderComponent } from '../header-component/app.component.header';
-import { CalendarComponent } from '../calendar-component/app.component.calendar';
 import { LoginComponent } from '../login-component/app.component.login';
 import { RegisterComponent } from '../register-component/app.component.register';
 import { ForgotComponent } from '../forgot-component/app.component.forgot';
@@ -40,10 +38,10 @@ const routes: Routes = [
   {path:'forgot', component:ForgotComponent},
   {path:'register', component: RegisterComponent},
   {path:'header', component: HeaderComponent},
-  {path:'app', component: CalendarComponent, canActivate: [AuthGuard]},
+  
   {path:'profile', component: ProfileComponent, canActivate: [AuthGuard]},
   {path: 'response-reset-password/:token',component: ResetComponent},
-  {path: 'cal', component: FullcalComponent}
+  {path: 'cal', component: FullcalComponent, canActivate: [AuthGuard]}
 ];
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
@@ -56,7 +54,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   declarations: [
     AppComponent,
     LoginComponent,
-    CalendarComponent,
+    
     ForgotComponent,
     RegisterComponent,
     HeaderComponent,

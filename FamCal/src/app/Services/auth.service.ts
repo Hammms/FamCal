@@ -56,27 +56,27 @@ export class AuthService {
     return this.http.post<any>(`${this.endpoint}/signin`, user)
       .subscribe((res: any) => {
         
-        localStorage.setItem('access_token', res.token)
+        sessionStorage.setItem('access_token', res.token)
         // Attempting to setup a profile page, not working put on back burner 
         // this.getUserProfile(res._id).subscribe((res) => {
         //   this.currentUser = res;
         //   this.router.navigate(['profile' + res.msg._id]);
         // })
-        this.router.navigate(['app'])
+        this.router.navigate(['cal'])
       })
   }
 
   getToken() {
-    return localStorage.getItem('access_token');
+    return sessionStorage.getItem('access_token');
   }
 
   get isLoggedIn(): boolean {
-    let authToken = localStorage.getItem('access_token');
+    let authToken = sessionStorage.getItem('access_token');
     return (authToken !== null) ? true : false;
   }
 
   doLogout() {
-    let removeToken = localStorage.removeItem('access_token');
+    let removeToken = sessionStorage.removeItem('access_token');
     if (removeToken == null) {
       this.router.navigate(['login']);
     }

@@ -1,9 +1,6 @@
 
-import { Component, OnInit, OnDestroy } from "@angular/core";
-import { Subscription } from 'rxjs';
+import { Component } from "@angular/core";
 import { AuthService } from "../Services/auth.service";
-import { DayService} from "../Services/day.service";
-import { Day } from "../day";
 
 @Component({
     selector: 'app-header',
@@ -13,12 +10,12 @@ import { Day } from "../day";
 
 
 export class HeaderComponent {
-
-    constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService) { }
   
-    logout() {
-      this.authService.doLogout()
+  logout() {
+    this.authService.doLogout()
     }
+    
   }
 
 
