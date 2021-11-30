@@ -40,4 +40,4 @@ proficiencies with explination of what was done during this project is listed be
 *	[Express Middleware](FamCal.md/FamCal-Wiki/Middleware) <br />
 *	[Express Models](FamCal.md/FamCal-WIki/Models) <br />
 *	[Error Handling](FamCal.md/FamCal-Wiki/Error-Handling) <br />
-*	[Database Design](FamCal.md/FamCal-Wiki/Database-Design) <br 
+*	[Database Design](FamCal.md/FamCal-Wiki/Database-Design) <br />
