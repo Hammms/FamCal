@@ -35,7 +35,7 @@ export class FullcalComponent{
   //Calendar Options and load
   calendarOptions: CalendarOptions = {
     plugins: [googleCalendarPlugin],
-    googleCalendarApiKey: 'AIzaSyBrn22dEEYNgGZoCXHDlJxrsRbF40ORnYU',
+    googleCalendarApiKey: 'YOUR API KEY HERE',
     events: {
       googleCalendarId:'dvikj4l5pb4ur77ch7js2fb0ug@group.calendar.google.com'
     },
