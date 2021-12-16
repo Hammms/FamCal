@@ -9,7 +9,7 @@ FamCal is a project with the purpose to show my skills in the field of web devel
   * angular 12
   * ng-bootstrap
   * angular material 
-  
+  * FullCalendar
 	
 	
 ### backend
@@ -19,7 +19,9 @@ FamCal is a project with the purpose to show my skills in the field of web devel
   * nodemailer
   * mongoose unique validator 
   * bcrypt 
-  * crypto?
+  * Cors
+  * Jsonwebtoken
+  * dotenv
 	
 ### Database: 
   * mongoDB
