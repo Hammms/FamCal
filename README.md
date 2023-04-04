@@ -1,6 +1,6 @@
 # FamCal 
 
-FamCal is a project with the purpose to show my skills in the field of web development in the hopes of landing a junior development position. functional use of the project is doing away with the calendar on the fridge that is currently used to track all family events and move it online so that family members can collaborate and access event data anywhere from any device that has access to the internet.	
+FamCal is a project with the purpose to show my skills in the field of web development. functional use of the project is doing away with the calendar on the fridge that is currently used to track all family events and move it online so that family members can collaborate and access event data anywhere from any device that has access to the internet.	
 
 
 ## Dependencies 
